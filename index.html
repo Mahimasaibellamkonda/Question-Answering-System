@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Question Answering System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Question Answering System</h1>
+
+        <p class="subtitle">
+            Ask a question based on the provided context.
+        </p>
+
+        <form method="POST">
+
+            <label for="context">Context / Document</label>
+
+            <textarea
+                id="context"
+                name="context"
+                placeholder="Enter a paragraph or document..."
+                required
+            >{{ context }}</textarea>
+
+
+            <label for="question">Question</label>
+
+            <input
+                type="text"
+                id="question"
+                name="question"
+                placeholder="Enter your question..."
+                value="{{ question }}"
+                required
+            >
+
+
+            <button type="submit">
+                Find Answer
+            </button>
+
+        </form>
+
+
+        {% if answer %}
+
+        <div class="answer-box">
+
+            <h2>Answer</h2>
+
+            <p>{{ answer }}</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
